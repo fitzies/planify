@@ -5,7 +5,9 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const fetcher = (...args) => fetch(...args).then((res) => res.json());
+export const fetcher = (...args: Parameters<typeof fetch>): Promise<any> => {
+  return fetch(...args).then((res) => res.json());
+};
 
 export function camelCaseToHumanReadable(camelCaseStr: string): string {
   // Step 1: Split the camelCase string into parts at uppercase letters

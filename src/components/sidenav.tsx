@@ -11,14 +11,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Sidenav = () => {
+  const pathname = usePathname();
   const path =
-    usePathname().split("/").length > 3
-      ? usePathname().split("/").slice(3).join("/")
+    pathname.split("/").length > 3
+      ? pathname.split("/").slice(3).join("/")
       : "";
 
   const id =
-    usePathname().split("/").length >= 3
-      ? usePathname().split("/").slice(2, 3).join("/")
+    pathname.split("/").length >= 3
+      ? pathname.split("/").slice(2, 3).join("/")
       : "";
 
   const options = [
