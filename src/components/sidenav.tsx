@@ -41,7 +41,7 @@ const Sidenav = () => {
         return (
           <Link
             key={option.name}
-            className={`text-left text-zinc-500 hover:text-zinc-100 hover:bg-zinc-800 duration-200 cursor-pointer rounded-md pl-1 pr-16 py-1 flex gap-2 items-center ${
+            className={`text-left text-zinc-500 hover:text-zinc-100 hover:bg-zinc-800 duration-200 cursor-pointer rounded-md pl-1 lg:pr-16 pr-1 py-1 flex gap-2 items-center ${
               index === options.length - 1 ? "mt-auto" : ""
             } ${selected}`}
             href={
@@ -51,7 +51,7 @@ const Sidenav = () => {
             }
           >
             <div className="scale-[.75]">{option.icon}</div>
-            <p className="text-sm">
+            <p className="text-sm lg:block hidden">
               {option.name.length <= 0 ? "Dashboard" : option.name}
             </p>
           </Link>

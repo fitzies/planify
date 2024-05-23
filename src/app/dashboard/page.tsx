@@ -19,7 +19,7 @@ const Page = async ({ params }: { params: { name: string } }) => {
   }
 
   return (
-    <div className="w-5/6 mx-auto p-4 flex flex-col lg:gap-0 gap-4">
+    <div className="lg:w-5/6 w-full mx-auto p-4 flex flex-col lg:gap-0 gap-4">
       <div className="px-6 relative flex gap-2">
         <Searchbar />
         <NewPopup userId={user.id} />

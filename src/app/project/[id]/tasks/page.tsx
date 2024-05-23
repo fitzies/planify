@@ -1,5 +1,4 @@
 import DragUi from "@/components/drag-ui";
-import { Input } from "@/components/ui/input";
 import { getTasks } from "@/lib/server";
 
 const Page = async ({ params }: { params: { id: string } }) => {
@@ -11,7 +10,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
       {/* <div className="w-full flex">
         <Input className="w-1/4 mb-4" placeholder="Search" />
       </div> */}
-      <div className="flex gap-2 h-screen justify-between w-full">
+      <div className="flex lg:flex-row flex-col gap-2 h-screen justify-between w-full">
         <DragUi res={res} projectId={params.id} />
       </div>
     </div>

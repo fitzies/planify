@@ -14,7 +14,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
     <div className="lg:w-2/3 w-3/4 mx-auto px-4 py-6 overflow-y-auto">
       <h1 className="header">Dashboard</h1>
       <div className="w-full flex flex-col gap-4">
-        <div className="flex gap-4 ">
+        <div className="flex gap-4 lg:flex-row flex-col">
           <Block
             subtitle="Create a task"
             description="Organize your projects by breaking them down into manageable tasks and assigning each task to a designated person"
@@ -40,7 +40,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
             </div>
           </Block>
         </div>
-        <div className="flex gap-4">
+        <div className="lg:flex gap-4 hidden">
           <TableX
             headers={["Tasks", "Asigned to", "Status"]}
             text={tasks.length === 0 ? "You have no tasks" : ""}

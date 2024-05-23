@@ -28,7 +28,7 @@ const TaskGroup = ({
   }`;
 
   return (
-    <div className="w-1/3 border-zinc-900 py-4 rounded-2xl flex flex-col gap-2 h-full">
+    <div className="lg:w-1/3 w-full border-zinc-900 py-4 rounded-2xl flex flex-col gap-2 h-full">
       <h2 className="font-medium text-lg">
         {camelCaseToHumanReadable(title)} ({groupTasks.length})
       </h2>

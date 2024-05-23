@@ -65,7 +65,7 @@ const SettingsForm = ({ project }: { project: Project }) => {
         </div>
         {!loading ? (
           <Button
-            className="w-[7%]"
+            className="lg:w-[7%] w-1/3"
             onClick={() => {
               toast({
                 title: "Settings saved",
@@ -76,7 +76,7 @@ const SettingsForm = ({ project }: { project: Project }) => {
             Save
           </Button>
         ) : (
-          <Button disabled className="w-[7%]">
+          <Button disabled className="lg:w-[7%] w-1/3">
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             Please wait
           </Button>
