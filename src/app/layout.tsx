@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "sonner";
+import { Toaster } from "@/components/ui/toaster";
 import Nav from "@/components/nav";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { getProjects } from "@/lib/server";
@@ -39,9 +39,9 @@ export default async function RootLayou({
             <UserProvider user={user}>
               <Nav />
               {children}
+              <Toaster />
             </UserProvider>
           </div>
-          <Toaster />
         </ThemeProvider>
       </body>
     </html>

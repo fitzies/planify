@@ -1,6 +1,7 @@
 "use server";
 
 import prisma from "@/db";
+import { Project } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
@@ -24,6 +25,18 @@ export const getProjects = async (userId: string) => {
   const res = await prisma.project.findMany({ where: { userId: userId } });
 
   return res;
+};
+
+export const updateProject = async (data: FormData) => {
+  const id = data.get("id")!.toString();
+  const updatedProject = {
+    name: data.get("name")!.toString(),
+    description: data.get("description")!.toString(),
+    repo: data.get("repo")!.toString(),
+    website: data.get("website")!.toString(),
+  };
+
+  await prisma.project.update({ where: { id }, data: { ...updatedProject } });
 };
 
 export const deleteProject = async (data: FormData) => {
