@@ -55,6 +55,8 @@ const TaskGroup = ({
                   {(provided, snapshot) => (
                     // Actual block from here
                     <motion.div
+                      key={task.id}
+                      layout
                       initial={{ scale: 0, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1, originY: 0 }}
                       exit={{ scale: 0, opacity: 0 }}
@@ -109,7 +111,11 @@ const TaskGroup = ({
               );
             })}
             {title === "notStarted" ? (
-              <CreateTask projectId={projectId} update={setTasks} />
+              <CreateTask
+                projectId={projectId}
+                update={setTasks}
+                tasks={tasks}
+              />
             ) : null}
           </div>
         )}

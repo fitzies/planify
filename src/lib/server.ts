@@ -73,6 +73,7 @@ export const createTask = async (data: FormData) => {
   // Task creation logic here
   const createdTask = await prisma.task.create({
     data: {
+      id: parseInt(data.get("id")!.toString()),
       name: data.get("task")!.toString(),
       status: "notStarted",
       projectId: data.get("projectId")!.toString(),

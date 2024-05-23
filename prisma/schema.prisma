@@ -21,7 +21,7 @@ model Project {
 }
 
 model Task {
-  id          Int        @id @default(autoincrement())
+  id          Int        @id //@default(autoincrement())
   name        String
   description String?
   status      Status

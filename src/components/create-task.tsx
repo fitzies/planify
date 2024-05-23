@@ -6,9 +6,14 @@ import { Task } from "@prisma/client";
 type CreateTaskProps = {
   projectId: string;
   update: any;
+  tasks: Task[];
 };
 
-const CreateTask: React.FC<CreateTaskProps> = ({ projectId, update }) => {
+const CreateTask: React.FC<CreateTaskProps> = ({
+  projectId,
+  update,
+  tasks,
+}) => {
   const [taskInput, setTaskInput] = useState(""); // State to manage the input field value
   const submitButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -22,9 +27,26 @@ const CreateTask: React.FC<CreateTaskProps> = ({ projectId, update }) => {
   };
 
   const handleCreateTask = async (data: FormData) => {
+    if (data.get("task")!.toString().length <= 0) {
+      return;
+    }
+
+    const id = (new Date().getTime() / 1000).toFixed(0);
+
+    data.set("id", id);
+    // const tempPrev = tasks;
+    const tempCreatedTask: Task = {
+      name: data.get("task")!.toString(),
+      assignedTo: "",
+      description: "",
+      id: parseInt(id),
+      projectId: projectId,
+      status: "notStarted",
+    };
+    update((prev: any[]) => [...prev, tempCreatedTask]);
     const createdTask: Task = await createTask(data);
 
-    update((prev: any[]) => [...prev, createdTask]);
+    // update((prev: any[]) => [...tempPrev, createdTask]);
 
     setTaskInput(""); // Clear the input field after form submission
   };
@@ -47,6 +69,7 @@ const CreateTask: React.FC<CreateTaskProps> = ({ projectId, update }) => {
         value={taskInput} // Bind input value to state
         onKeyDown={handleSubmit}
         onChange={(e) => setTaskInput(e.target.value)} // Update state on change
+        minLength={1}
       />
       <button type="submit" className="hidden" ref={submitButtonRef}></button>
     </form>

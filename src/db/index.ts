@@ -1,12 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 
-// const libsql = createClient({
-//   url: `${process.env.DATABASE_URL}`,
-//   authToken: `${process.env.DATABASE_AUTH_TOKEN}`,
-// });
-
-// const adapter = new PrismaLibSQL(libsql);
-
 interface CustomNodeJsGlobal {
   prisma: PrismaClient;
 }
