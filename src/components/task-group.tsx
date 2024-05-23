@@ -84,7 +84,10 @@ const TaskGroup = ({
                             action={async (data: FormData) => {
                               const deletedTask = await editTask(data);
                               let temp = tasks.filter(
-                                (task) => task.id !== deletedTask.id
+                                // (task) => task.id !== deletedTask.id
+                                (task) =>
+                                  task.id !==
+                                  parseInt(data.get("taskId")!.toString())
                               );
 
                               setTasks(() => temp);
