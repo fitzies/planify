@@ -84,7 +84,7 @@ export const createTask = async (data: FormData) => {
   return createdTask;
 };
 
-export const editTask = async (data: FormData) => {
+export const deleteTask = async (data: FormData) => {
   let taskId = parseInt(data.get("taskId")!.toString());
 
   return await prisma.task.delete({ where: { id: taskId } });

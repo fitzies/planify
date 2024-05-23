@@ -17,6 +17,9 @@ model Project {
   sharedWith  String[]
   createdAt   DateTime   @default(now())
 
+  repo String?
+  website String?
+
   tasks       Task[]
 }
 

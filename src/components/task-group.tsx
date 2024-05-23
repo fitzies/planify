@@ -7,7 +7,7 @@ import { Draggable, Droppable } from "@hello-pangea/dnd";
 import { Task } from "@prisma/client";
 import { PencilIcon, Trash } from "lucide-react";
 import CreateTask from "./create-task";
-import { editTask } from "@/lib/server";
+import { deleteTask } from "@/lib/server";
 import { useUserStore } from "@/stores/user-store";
 
 const TaskGroup = ({
@@ -82,15 +82,14 @@ const TaskGroup = ({
                           <PencilIcon className="scale-75" />
                           <form
                             action={async (data: FormData) => {
-                              const deletedTask = await editTask(data);
                               let temp = tasks.filter(
-                                // (task) => task.id !== deletedTask.id
                                 (task) =>
                                   task.id !==
                                   parseInt(data.get("taskId")!.toString())
                               );
 
                               setTasks(() => temp);
+                              await deleteTask(data);
                             }}
                           >
                             <input
