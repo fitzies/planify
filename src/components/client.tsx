@@ -1,11 +1,20 @@
 "use client";
 
 import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs";
+import { Button } from "./ui/button";
 
-const ClientAuth = () => {
+const ClientAuth = ({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) => {
   return (
     <>
-      <RegisterLink>Sign up</RegisterLink>
+      <RegisterLink className={`w-full ${className}`}>
+        <Button className="w-full">{text}</Button>
+      </RegisterLink>
     </>
   );
 };

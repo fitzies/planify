@@ -35,13 +35,11 @@ export default async function RootLayou({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="h-screen flex flex-col">
-            <UserProvider user={user}>
-              <Nav />
-              {children}
-              <Toaster />
-            </UserProvider>
-          </div>
+          <UserProvider user={user}>
+            <Nav />
+            {children}
+            <Toaster />
+          </UserProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -25,20 +25,26 @@ const Nav = () => {
         onClick={() => router.push("/dashboard")}
         className="cursor-pointer"
       />
-      <p className="text-zinc-400 dark:text-zinc-500 text-lg">/</p>
-      <div className="rounded-full cursor-default bg-zinc-800 w-[33px] h-[33px]">
-        {user ? (
-          <Image
-            src={user?.picture ?? ""}
-            alt={user?.given_name ?? "User"}
-            width={33}
-            height={33}
-          />
-        ) : (
-          ""
-        )}
-      </div>
-      <p className="cursor-default text-sm">{user?.given_name ?? "..."}</p>
+      {user ? (
+        <>
+          <p className="text-zinc-400 dark:text-zinc-500 text-lg">/</p>
+          <div className="rounded-full cursor-default bg-zinc-800 w-[33px] h-[33px]">
+            {user ? (
+              <Image
+                src={user?.picture ?? ""}
+                alt={user?.given_name ?? "User"}
+                width={33}
+                height={33}
+              />
+            ) : (
+              ""
+            )}
+          </div>
+        </>
+      ) : null}
+      {user ? (
+        <p className="cursor-default text-sm">{user?.given_name ?? "..."}</p>
+      ) : null}
       {!path && project ? (
         <>
           <p className="text-zinc-400 dark:text-zinc-500 text-lg">/</p>

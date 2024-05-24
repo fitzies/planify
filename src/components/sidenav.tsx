@@ -31,7 +31,7 @@ const Sidenav = () => {
   ];
 
   return (
-    <div className="border-r border-zinc-800 flex flex-col pl-3 pr-4 py-8 gap-2">
+    <div className="h-[93vh] border-r border-zinc-800 flex flex-col pl-3 pr-4 py-8 gap-2">
       {options.map((option, index) => {
         const selected =
           option.name.toLowerCase() === path
