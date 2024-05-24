@@ -35,6 +35,7 @@ const Nav = () => {
                 alt={user?.given_name ?? "User"}
                 width={33}
                 height={33}
+                className="rounded-md"
               />
             ) : (
               ""
