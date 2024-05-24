@@ -16,7 +16,7 @@ const Notes = ({ project }: { project: Project }) => {
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const [editMode, setEditMode] = useState<boolean>(false);
+  const [editMode, setEditMode] = useState<boolean>(true);
 
   const submitButtonRef = useRef<HTMLButtonElement>(null);
 
