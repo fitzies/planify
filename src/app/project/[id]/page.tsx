@@ -9,6 +9,7 @@ import Link from "next/link";
 const Page = async ({ params }: { params: { id: string } }) => {
   const progress = await getProjectPercent(params.id);
   const tasks = await getTasks(params.id);
+  // const project = await getProject(params.id);
 
   return (
     <div className="lg:w-2/3 w-3/4 mx-auto px-4 py-6 overflow-y-auto">

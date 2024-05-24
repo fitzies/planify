@@ -20,6 +20,8 @@ model Project {
   repo String?
   website String?
 
+  notes String?
+
   tasks       Task[]
 }
 

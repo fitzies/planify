@@ -40,7 +40,10 @@ export const updateProject = async (data: FormData) => {
 };
 
 export const deleteProject = async (data: FormData) => {
-  await prisma.project.delete({ where: { id: data.get("id")!.toString() } });
+  const projectId = data.get("id")!.toString();
+
+  await prisma.task.deleteMany({ where: { projectId } });
+  await prisma.project.delete({ where: { id: projectId } });
   revalidatePath("/dashboard");
 };
 
@@ -143,4 +146,17 @@ export const getUsers = async () => {
   } catch (err) {
     console.error(err);
   }
+};
+
+export const updateNotes = async (data: FormData) => {
+  const id = data.get("id")!.toString();
+  const notes = data.get("notes")!.toString();
+  await prisma.project.update({ where: { id }, data: { notes } });
+};
+
+export const clearCache = (path: string) => {
+  if (path.length <= 0) {
+    return;
+  }
+  revalidatePath(path);
 };
