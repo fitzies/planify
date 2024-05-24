@@ -1,7 +1,6 @@
 import { ClientAuth } from "@/components/client";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const user = await getKindeServerSession().getUser();
